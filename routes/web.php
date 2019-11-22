@@ -15,3 +15,8 @@ Route::get('login/create','admin\login@create');
 //注册执行页面
 Route::post('login/ins','admin\login@ins');
 
+Route::get('/','admin\Index@index');
+
+Route::prefix('/care')->group(function () {
+    Route::get('index', 'admin\CareController@index');
+});
