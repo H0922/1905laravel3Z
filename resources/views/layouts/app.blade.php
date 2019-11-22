@@ -167,9 +167,9 @@
                             </a>
                         </li>
                          <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="form-basic.html" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('admin/customer/add') }}" aria-expanded="false">
                                 <i class="mdi mdi-arrange-bring-forward"></i>
-                                <span class="hide-menu">3333</span>
+                                <span class="hide-menu">客户管理</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
