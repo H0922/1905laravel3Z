@@ -149,7 +149,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('care/index')}}" aria-expanded="false">
                                 <i class="mdi mdi-border-none"></i>
                                 <span class="hide-menu">4</span>
                             </a>
