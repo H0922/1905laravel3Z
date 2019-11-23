@@ -145,11 +145,10 @@
                          <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('admin/customer/add') }}" aria-expanded="false">
                                 <i class="mdi mdi-arrange-bring-forward"></i>
-<<<<<<< HEAD
+
                                 <span class="hide-menu">3</span>
-=======
+
                                 <span class="hide-menu">客户管理</span>
->>>>>>> wang
                             </a>
                         </li>
                         <li class="sidebar-item">

@@ -6,7 +6,7 @@ Route::get('/','admin\index@index');
 
 
 
-<<<<<<< HEAD
+
 //登录展示页面
 Route::get('login/index','admin\login@index');
 //登录执行页面
@@ -21,7 +21,7 @@ Route::get('/','admin\Index@index');
 Route::prefix('/care')->group(function () {
     Route::get('index', 'admin\CareController@index');
 });
-=======
+
 Route::get('/','admin\index@index');
 //添加
 Route::get('admin/customer/add','admin\CustomerController@create');
@@ -32,7 +32,7 @@ Route::get('admin/customer/index','admin\CustomerController@index');
 Route::any('admin/customer/show/{id}','admin\CustomerController@show');
 //修改
 Route::get('admin/customer/edit/{id}','admin\CustomerController@edit');
-Route::post('admin/customer/edit/{id}','admin\CustomerController@update');
+Route::post('admin/customer/update/{id}','admin\CustomerController@update');
 //删除
 Route::any('admin/customer/destroy/{id}','admin\CustomerController@destroy');
->>>>>>> wang
+

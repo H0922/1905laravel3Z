@@ -16,12 +16,14 @@
 	<form action="">
 		客户名称:<input type="text" name="cli_name" value="{{ $query['cli_name']??'' }}" placeholder="请输入客户名称">
 		联系人:<input type="text" name="con_name " value="{{ $query['con_name ']??'' }}" placeholder="请输入联系人">
+		日期:<input type="date" name="date">
 		<button  class="btn btn-dark">搜索</button>
 	</form>
 
   <table class="table table-dark table-hover">
     	<thead>  
     	  	<tr align="center">
+    	  		<td><h4>编号</h4></td>
 	    		<td><h4>客户名称</h4></td>
 	    		<td><h4>服务类型</h4></td>
 	    		<td><h4>服务日期</h4></td>
@@ -34,6 +36,7 @@
     	@foreach($data as $v)
     	<tbody>  
     	  	<tr align="center">
+    	  		<td>{{ $v->id }}</td>
 	    		<td>{{ $v->cli_name }}</td>
 	    		<td>{{ $v->type  }}</td>
 	    		<td>{{ $v->date }}</td>

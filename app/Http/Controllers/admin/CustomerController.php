@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CustomerModel;
+use App\Models\ContactsModel;
+use App\Models\ClienModel;
 
 class CustomerController extends Controller
 {
@@ -22,9 +24,14 @@ class CustomerController extends Controller
             $where[] = ['cli_name','like',"%$name%"];
         }
 
-        $name = request()->con_name;
-        if($name){
-            $where[] = ['con_name','like',"%$name%"];
+        $con_name = request()->con_name;
+        if($con_name){
+            $where[] = ['con_name','like',"%$con_name%"];
+        }
+
+        $date = request()->date;
+        if($date){
+            $where[] = ['date','like',"%$date%"];
         }
 
         $data = CustomerModel::where($where)->paginate(2);
@@ -40,7 +47,13 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('admin.customer.add');
+        $obj = new ContactsModel;
+        $data = $obj->select('con_name')->get();
+
+        $cli = new ClienModel;
+        $clien = $cli->select('cli_name')->get();
+        //dd($clien);
+        return view('admin.customer.add',['data'=>$data,'clien'=>$clien]);
     }
 
     /**
@@ -80,7 +93,15 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $obj = new ContactsModel;
+        $con = $obj->select('con_name')->get();
+
+        $cli = new ClienModel;
+        $clien = $cli->select('cli_name')->get();
+
+        $data = CustomerModel::find($id);
+        //dd($data);
+        return view('admin/customer/edit',['data'=>$data,'con'=>$con,'clien'=>$clien]);
     }
 
     /**
@@ -92,7 +113,27 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $data = CustomerModel::findorFail($id);
+        //dd($data);exit;
+            $post = request()->all();
+            //dd($post);exit;
+               $data->type = $request->type;
+               $data->date = $request->date;
+               $data->cli_name = $request->cli_name;
+               $data->con_name = $request->con_name;
+               $data->estimated = $request->estimated;
+               $data->cost = $request->cost; 
+               $data->content = $request->content; 
+               $data->degree = $request->degree;
+               $data->opinion = $request->opinion; 
+               $data->remark = $request->remark; 
+
+               $bool = $data->save();
+          // dd($bool);exit;
+            if($data){
+                return redirect('admin/customer/index');
+            }
+
     }
 
     /**
@@ -103,6 +144,10 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = CustomerModel::find($id)->delete($id);
+        if($data){
+            return redirect('admin/customer/index');
+        }
+
     }
 }
