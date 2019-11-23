@@ -24,6 +24,7 @@ Route::prefix('/care')->group(function () {
 
 Route::get('/','admin\index@index');
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 Route::get('client/create','admin\Client@create');
@@ -32,6 +33,14 @@ Route::post('client/store','admin\Client@store');
 Route::get('client/destroy/{cli_id}','admin\Client@destroy');
 Route::get('client/edit/{cli_id}','admin\Client@edit');
 Route::post('client/update/{cli_id}','admin\Client@update');
+=======
+Route::get('/contacts/index','admin\ContactsController@index');//展示
+Route::get('/contacts/create','admin\ContactsController@create');//添加
+Route::post('/contacts/store','admin\ContactsController@store');//执行添加
+Route::get('/contacts/delete/{id}','admin\ContactsController@delete');//删除
+Route::get('/contacts/edit/{id}','admin\ContactsController@edit');//编辑
+Route::post('/contacts/update/{id}','admin\ContactsController@update');//执行编辑
+>>>>>>> d52b7b5fb3c9c44aaceb70f925c7479fe8cc1351
 =======
 //添加
 Route::get('admin/customer/add','admin\CustomerController@create');

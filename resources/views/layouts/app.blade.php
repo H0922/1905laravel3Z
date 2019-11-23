@@ -158,9 +158,13 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="icon-material.html" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/contacts/index" aria-expanded="false">
                                 <i class="mdi mdi-face"></i>
+
+                                <span class="hide-menu">联系人管理</span>
+
                                 <span class="hide-menu">5</span>
+
                             </a>
                         </li>
                         <li class="sidebar-item">
