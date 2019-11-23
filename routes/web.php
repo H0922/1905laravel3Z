@@ -18,3 +18,9 @@
 
 
 Route::get('/','admin\index@index');
+Route::get('/contacts/index','admin\ContactsController@index');//展示
+Route::get('/contacts/create','admin\ContactsController@create');//添加
+Route::post('/contacts/store','admin\ContactsController@store');//执行添加
+Route::get('/contacts/delete/{id}','admin\ContactsController@delete');//删除
+Route::get('/contacts/edit/{id}','admin\ContactsController@edit');//编辑
+Route::post('/contacts/update/{id}','admin\ContactsController@update');//执行编辑
