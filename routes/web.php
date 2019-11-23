@@ -18,3 +18,11 @@
 
 
 Route::get('/','admin\index@index');
+
+
+Route::get('client/create','admin\Client@create');
+Route::get('client/index','admin\Client@index');
+Route::post('client/store','admin\Client@store');
+Route::get('client/destroy/{cli_id}','admin\Client@destroy');
+Route::get('client/edit/{cli_id}','admin\Client@edit');
+Route::post('client/update/{cli_id}','admin\Client@update');
