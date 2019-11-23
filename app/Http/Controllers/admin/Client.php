@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Client as cli;
 
+use App\Users;
+
 class Client extends Controller
 {
     /**
@@ -48,7 +50,7 @@ class Client extends Controller
             if($industry){
                 $where[]=['industry','=',"$industry"];
             }
-        $res=cli::where($where)->paginate(3);
+        $res=cli::join('users','client.user_id','=','users.user_id')->where($where)->paginate(3);
         $query=request()->all();
         return view('admin.client.index',['res'=>$res,'query'=>$query]);
     }
@@ -60,7 +62,8 @@ class Client extends Controller
      */
     public function create()
     {
-        return view('admin.client.create');
+        $res=Users::get();
+        return view('admin.client.create',['res'=>$res]);
     }
 
     /**

@@ -19,7 +19,11 @@
 	<div class="form-group">
 		<label for="inputPassword" class="col-sm-2 control-label">销售员</label>
 		<div class="col-sm-8">
-			<input type="text" class="form-control" id="inputPassword" name="" >
+			<select name="user_id">
+			@foreach ($res as $v)
+				<option value="{{$res->user_id}}">{{$res->user_name}}</option>
+			</select>
+			@foreach
 		</div>
 	</div>
     <div class="form-group">

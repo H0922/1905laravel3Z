@@ -63,6 +63,7 @@
                                     <thead class="thead-light">
                                         <tbody>
                                             <th scope="col">ID</th>
+                                            <th scope="col">销售员</th>
                                             <th scope="col">客户名称</th>
                                             <th scope="col">客户编码</th>
                                             <th scope="col">地区</th>
@@ -76,6 +77,7 @@
                                         @foreach ($res as $v)
                                         <tr>
                                             <th scope="col">{{$v->cli_id}}</th>
+                                            <th scope="col">{{$v->user_name}}</th>
                                             <th scope="col">{{$v->cli_name}}</th>
                                             <th scope="col">{{$v->cli_encode}}</th>
                                             <th scope="col">{{$v->area}}</th>

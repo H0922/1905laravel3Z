@@ -8,30 +8,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/admin/assets/images/favicon.png">
-    <title>@yield('title')</title>
-    <!-- Custom CSS -->
-    <link href="/static/admin/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="/static/admin/dist/css/style.min.css" rel="stylesheet">
-    <script src="/static/admin/assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="/static/admin/assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="/static/admin/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="/static/admin/assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="/static/admin/dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="/static/admin/dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="/static/admin/dist/js/custom.min.js"></script>
-    <!--This page JavaScript -->
-    <!--chartis chart-->
-    <script src="/static/admin/assets/libs/chartist/dist/chartist.min.js"></script>
-    <script src="/static/admin/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-    <script src="/static/admin/dist/js/pages/dashboards/dashboard1.js"></script>
+   <!-- Favicon icon -->
+   <link rel="icon" type="image/png" sizes="16x16" href="/static/admin/assets/images/favicon.png">
+   <title>@yield('title')</title>
+   <!-- Custom CSS -->
+   <link href="/static/admin/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+   <!-- Custom CSS -->
+   <link href="/static/admin/dist/css/style.min.css" rel="stylesheet">
+   <script src="/static/admin/assets/libs/jquery/dist/jquery.min.js"></script>
+   <!-- Bootstrap tether Core JavaScript -->
+   <script src="/static/admin/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+   {{-- <script src="/static/admin/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script> --}}
+   <!-- slimscrollbar scrollbar JavaScript -->
+   <script src="/static/admin/assets/extra-libs/sparkline/sparkline.js"></script>
+   <!--Wave Effects -->
+   <script src="/static/admin/dist/js/waves.js"></script>
+   <!--Menu sidebar -->
+   <script src="/static/admin/dist/js/sidebarmenu.js"></script>
+   <!--Custom JavaScript -->
+   <script src="/static/admin/dist/js/custom.min.js"></script>
+   <!--This page JavaScript -->
+   <!--chartis chart-->
+   <script src="/static/admin/assets/libs/chartist/dist/chartist.min.js"></script>
+   <script src="/static/admin/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+   <script src="/static/admin/dist/js/pages/dashboards/dashboard1.js"></script>
+   <script src="/static/admin/css/bootstrap.css"></script>
+   <script src="/static/admin/js/bootstrap.min.js"></script>  
+    <script src="/static/admin/js/jquery.min.js"></script>
+
+</head>
 </head>
 
 <body>
@@ -81,12 +86,6 @@
                             </span>
                         </a>
                     </div>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- Toggle which is visible on mobile only -->
-                    <!-- ============================================================== -->
                     <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="ti-more"></i>
@@ -95,50 +94,27 @@
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin6">
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav float-left mr-auto">
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item search-box">
-                            <a class="nav-link waves-effect waves-dark" href="javascript:void(0)">
-                                <div class="d-flex align-items-center">
-                                    <i class="mdi mdi-magnify font-20 mr-1"></i>
-                                    <div class="ml-1 d-none d-sm-block">
-                                        <span>Search</span>
-                                    </div>
+                <div class="navbar-collapse collapse " id="navbarSupportedContent" data-navbarbg="skin6">
+                    @if (session('login'))
+                    <div class="m-icon pull-right">
+                            <h3><i class="m-r-10 mdi mdi-account-circle">
+                                 </i>
+                                <code class="m-r-10">欢迎{{session('login')}}登录</code></h3> 
+                             </div>
+                    @else
+                    <div class="m-icon pull-right">
+                            <h3><i class="m-r-10 mdi mdi-account-circle">
+                                 </i>
+                                 <a href="{{url('login/index')}}"><code class="m-r-10">登录</code></a></h3> 
+                             </div>
+                    @endif
+                       
+                            <div class="m-icon pull-right">
+                                <h3><i class="m-r-10 mdi mdi-account-multiple-plus">
+                                    </i><a href="{{url('login/create')}}"><code class="m-r-10">欢迎注册</code></a></h3>
+                                 
                                 </div>
-                            </a>
-                            <form class="app-search position-absolute">
-                                <input type="text" class="form-control" placeholder="Search &amp; enter">
-                                <a class="srh-btn">
-                                    <i class="ti-close"></i>
-                                </a>
-                            </form>
-                        </li>
-                    </ul>
-                    <!-- ============================================================== -->
-                    <!-- Right side toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav float-right">
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/static/admin/assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
-                            <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
-                            </div>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                    </ul>
+                 
                 </div>
             </nav>
         </header>
@@ -157,48 +133,52 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false">
                                 <i class="mdi mdi-av-timer"></i>
-                                <span class="hide-menu">1111</span>
+                                <span class="hide-menu">1</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-profile.html" aria-expanded="false">
                                 <i class="mdi mdi-account-network"></i>
-                                <span class="hide-menu">22222</span>
+                                <span class="hide-menu">2</span>
                             </a>
                         </li>
                          <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="form-basic.html" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('admin/customer/add') }}" aria-expanded="false">
                                 <i class="mdi mdi-arrange-bring-forward"></i>
-                                <span class="hide-menu">3333</span>
+
+                                <span class="hide-menu">3</span>
+
+                                <span class="hide-menu">客户管理</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('care/index')}}" aria-expanded="false">
                                 <i class="mdi mdi-border-none"></i>
-                                <span class="hide-menu">4444</span>
+                                <span class="hide-menu">4</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="icon-material.html" aria-expanded="false">
                                 <i class="mdi mdi-face"></i>
-                                <span class="hide-menu">5555</span>
+                                <span class="hide-menu">5</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="starter-kit.html" aria-expanded="false">
                                 <i class="mdi mdi-file"></i>
-                                <span class="hide-menu">6666</span>
+                                <span class="hide-menu">6</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
-                <!-- End Sidebar navigation -->
             </div>
-            <!-- End Sidebar scroll-->
         </aside>
-        <div class="container">
-            @yield('content')
+      
+        <div class="page-wrapper">
+                @yield('content')
         </div>
+    
+    </div>
 </body>
 
 </html>

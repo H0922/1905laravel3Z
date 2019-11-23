@@ -9,11 +9,11 @@ class Swift_Plugins_DecoratorPluginTest extends \SwiftMailerTestCase
             ['zip@button.tld' => 'Zipathon'],
             ['chris.corbyn@swiftmailer.org' => 'Chris'],
             'Subject',
-            'Hello {name}, you are customer #{id}'
+            'Hello {name}, you are care #{id}'
             );
         $message->shouldReceive('setBody')
                 ->once()
-                ->with('Hello Zip, you are customer #456');
+                ->with('Hello Zip, you are care #456');
         $message->shouldReceive('setBody')
                 ->zeroOrMoreTimes();
 
@@ -34,17 +34,17 @@ class Swift_Plugins_DecoratorPluginTest extends \SwiftMailerTestCase
             ['zip@button.tld' => 'Zipathon', 'foo@bar.tld' => 'Foo'],
             ['chris.corbyn@swiftmailer.org' => 'Chris'],
             'Subject',
-            'Hello {name}, you are customer #{id}'
+            'Hello {name}, you are care #{id}'
             );
         $message->shouldReceive('setBody')
                 ->once()
-                ->with('Hello Zip, you are customer #456');
+                ->with('Hello Zip, you are care #456');
         $message->shouldReceive('setBody')
                 ->once()
-                ->with('Hello {name}, you are customer #{id}');
+                ->with('Hello {name}, you are care #{id}');
         $message->shouldReceive('setBody')
                 ->once()
-                ->with('Hello Foo, you are customer #123');
+                ->with('Hello Foo, you are care #123');
         $message->shouldReceive('setBody')
                 ->zeroOrMoreTimes();
 
@@ -75,12 +75,12 @@ class Swift_Plugins_DecoratorPluginTest extends \SwiftMailerTestCase
             ['zip@button.tld' => 'Zipathon'],
             ['chris.corbyn@swiftmailer.org' => 'Chris'],
             'A message for {name}!',
-            'Hello {name}, you are customer #{id}'
+            'Hello {name}, you are care #{id}'
             );
 
         $message->shouldReceive('setBody')
                 ->once()
-                ->with('Hello Zip, you are customer #456');
+                ->with('Hello Zip, you are care #456');
         $toHeader->shouldReceive('setFieldBodyModel')
                  ->once()
                  ->with('A message for Zip!');
