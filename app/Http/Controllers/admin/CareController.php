@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use DB;
 
 class CareController extends Controller
 {
@@ -14,7 +16,14 @@ class CareController extends Controller
      */
     public function index()
     {
-        return view('admin.care.index');
+        $pageSize =config('app.pageSize');
+       // $data=Customer::where()->paginate($pageSize);
+
+       $contacts =DB::table('contacts')->paginate(2);
+//        dd($contacts);
+        $query = request()->all() ;
+        return view('admin.care.index',['data'=>$contacts,'query'=>$query]);
+
     }
 
     /**
